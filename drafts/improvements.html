@@ -1,0 +1,202 @@
+<style>
+:root{
+  --bg:#FAF9F6; --surface:#FFFFFF; --ink:#201E1B; --ink-soft:#55524D; --muted:#8F8A83;
+  --hairline:#E9E6E0; --marker:#E8A93B;
+  --radius-card:28px; --radius-tile:20px; --radius-sm:14px;
+  --serif:"Noto Serif KR","Nanum Myeongjo","AppleMyungjo",Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Segoe UI","Noto Sans KR",sans-serif;
+  --shadow-card:0 1px 2px rgba(30,28,25,.05),0 14px 44px rgba(30,28,25,.08);
+  /* 다크 토큰 제안 */
+  --d-bg:#141312; --d-surface:#1E1C1A; --d-ink:#F2EFE9; --d-ink-soft:#C9C4BB; --d-muted:#8F8A83; --d-hairline:#2E2B28;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;padding:48px 20px 90px}
+.page{max-width:600px;margin:0 auto}
+h1{font-family:var(--serif);font-size:26px;font-weight:600;margin-bottom:6px}
+.sub{font-size:13px;color:var(--muted);margin-bottom:44px}
+h2{font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--ink);margin:56px 0 6px}
+.why{font-size:12.5px;color:var(--muted);line-height:1.7;margin-bottom:16px;word-break:keep-all}
+.mini-orb{width:13px;height:13px;border-radius:50%;position:relative;overflow:hidden;flex:none;background:radial-gradient(circle at 40% 35%,#F3F0E8,#B6B0A4);animation:breathe 3.2s ease-in-out infinite}
+.mini-orb::before{content:"";position:absolute;inset:-30%;background:radial-gradient(50% 46% at 70% 38%,rgba(158,188,226,.5),transparent 72%),radial-gradient(50% 46% at 40% 78%,rgba(190,178,220,.36),transparent 74%);filter:blur(2px)}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.12);opacity:1}}
+
+/* A. user_return */
+.card{background:var(--surface);border:1px solid var(--hairline);border-radius:var(--radius-card);box-shadow:var(--shadow-card);padding:24px 26px}
+.who{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}
+.who b{font-size:13px;color:var(--ink);font-weight:600}
+.ret-hello{font-family:var(--serif);font-size:17px;line-height:1.8;margin-top:12px;word-break:keep-all}
+.traces{list-style:none;margin-top:18px;border-top:1px solid var(--hairline)}
+.traces li{display:flex;gap:11px;align-items:baseline;padding:13px 2px;border-bottom:1px solid var(--hairline);font-size:14px;color:var(--ink-soft);line-height:1.55}
+.traces li:last-child{border-bottom:none}
+.tr-tag{font-size:10.5px;color:var(--muted);border:1px solid var(--hairline);border-radius:999px;padding:2px 8px;flex:none}
+.tr-go{margin-left:auto;color:var(--muted);font-size:12px;flex:none}
+.unread{width:7px;height:7px;border-radius:50%;background:var(--ink);flex:none;align-self:center}
+.dayhead{display:flex;align-items:baseline;gap:9px;margin:26px 0 14px}
+.dayhead b{font-size:15px}
+.unread-chip{margin-left:auto;font-size:11.5px;color:var(--ink-soft);background:var(--surface);border:1px solid var(--hairline);border-radius:999px;padding:4px 11px;display:inline-flex;align-items:center;gap:6px}
+.unread-chip i{width:6px;height:6px;border-radius:50%;background:var(--ink)}
+.post-min{background:var(--surface);border:1px solid var(--hairline);border-radius:var(--radius-card);box-shadow:var(--shadow-card);padding:18px 22px;margin-top:12px}
+.post-min .txt{font-family:var(--serif);font-size:15px;line-height:1.8;margin-top:8px}
+
+/* B. 그날 상세 */
+.day-hero{position:relative;overflow:hidden;border-radius:calc(var(--radius-card) - 1px) calc(var(--radius-card) - 1px) 0 0;margin:-1px -1px 0;height:200px}
+.day-hero .bd{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(34px) saturate(1.15) brightness(.9);transform:scale(1.3)}
+.day-hero .ft{position:relative;display:block;height:calc(100% - 40px);margin:20px auto;object-fit:contain;border-radius:6px;box-shadow:0 4px 10px rgba(0,0,0,.25),0 14px 34px rgba(0,0,0,.3)}
+.day-title{font-family:var(--serif);font-size:26px;font-weight:600;letter-spacing:-.01em}
+.day-body{padding:22px 26px}
+.day-sum{font-size:14px;color:var(--ink-soft);line-height:1.75;margin-top:10px;word-break:keep-all}
+.kw{color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--muted);text-decoration-thickness:1px}
+.day-items{margin-top:16px;border-top:1px solid var(--hairline)}
+.day-item{display:flex;gap:10px;align-items:baseline;padding:12px 2px;border-bottom:1px solid var(--hairline);font-size:13.5px;color:var(--ink-soft)}
+.day-item:last-child{border-bottom:none}
+.di-t{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;flex:none;width:64px}
+.di-k{font-size:10.5px;color:var(--muted);border:1px solid var(--hairline);border-radius:999px;padding:2px 8px;flex:none}
+
+/* C. 라이트박스 */
+.lightbox{position:relative;background:#161514;border-radius:var(--radius-card);height:420px;display:flex;flex-direction:column;overflow:hidden}
+.lb-top{display:flex;justify-content:flex-end;padding:16px 18px}
+.lb-x{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.08);color:rgba(242,239,233,.7);display:flex;align-items:center;justify-content:center;font-size:15px}
+.lb-img{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:0 34px}
+.lb-img img{max-width:100%;max-height:100%;border-radius:6px;box-shadow:0 18px 50px rgba(0,0,0,.5)}
+.lb-foot{display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px 0 20px}
+.lb-cap{font-size:12px;color:rgba(242,239,233,.55)}
+.lb-dots{display:flex;gap:6px}
+.lb-dots i{width:6px;height:6px;border-radius:50%;background:rgba(242,239,233,.25)}
+.lb-dots i.on{background:rgba(242,239,233,.85)}
+
+/* D. 다크모드 */
+.swatches{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.sw{width:104px}
+.sw i{display:block;height:52px;border-radius:12px;border:1px solid var(--hairline)}
+.sw b{display:block;font-size:11px;margin-top:6px}
+.sw span{font-size:10.5px;color:var(--muted);font-family:ui-monospace,Menlo,monospace}
+.darkwrap{background:var(--d-bg);border-radius:var(--radius-card);padding:26px 22px}
+.d-card{background:var(--d-surface);border:1px solid var(--d-hairline);border-radius:22px;padding:18px 20px;box-shadow:0 14px 44px rgba(0,0,0,.4)}
+.d-date{font-size:13px;font-weight:600;color:var(--d-ink);display:flex;gap:8px;align-items:baseline}
+.d-date span{font-weight:400;color:var(--d-muted);font-size:12px}
+.d-sum{font-size:14px;line-height:1.75;color:var(--d-ink-soft);margin-top:8px;word-break:keep-all}
+.d-kw{color:var(--d-ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--d-muted);text-decoration-thickness:1px}
+.d-loki{font-family:var(--serif);font-size:14px;line-height:1.75;color:var(--d-ink-soft);margin-top:12px;padding-top:12px;border-top:1px solid var(--d-hairline)}
+.d-meta{display:flex;gap:18px;margin-top:12px;font-size:12px;color:var(--d-muted);align-items:center}
+.d-mk{color:var(--marker);display:inline-flex;align-items:center;gap:5px}
+.d-bar{margin-top:18px;display:flex;align-items:center;gap:10px;background:var(--d-surface);border:1px solid var(--d-hairline);border-radius:999px;padding:8px 8px 8px 18px}
+.d-bar .ph{flex:1;font-size:14px;color:var(--d-muted)}
+.d-voice{width:40px;height:40px;border-radius:50%;background:var(--d-ink);display:flex;align-items:center;justify-content:center}
+.d-chip{display:inline-flex;align-items:center;gap:8px;background:var(--d-surface);border:1px solid var(--d-hairline);border-radius:999px;padding:7px 13px;font-size:12px;color:var(--d-ink-soft);margin-bottom:16px}
+.white-orb{width:13px;height:13px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#FFFFFF,#CFC9BE);box-shadow:0 0 8px rgba(255,255,255,.35);animation:breathe 3.2s ease-in-out infinite}
+
+/* E. 상태 */
+.skel{background:var(--surface);border:1px solid var(--hairline);border-radius:var(--radius-card);padding:20px 22px}
+.skel i{display:block;border-radius:6px;background:linear-gradient(90deg,#EFEDE8 25%,#F7F5F1 50%,#EFEDE8 75%);background-size:200% 100%;animation:shimmer 1.6s linear infinite}
+@keyframes shimmer{to{background-position:-200% 0}}
+.thinking{display:flex;gap:10px;align-items:center;padding:12px 0 0;margin-top:12px;border-top:1px solid var(--hairline)}
+.thinking .lbl{font-size:12.5px;color:var(--muted)}
+.tdots{display:inline-flex;gap:4px;margin-left:2px}
+.tdots i{width:4px;height:4px;border-radius:50%;background:var(--muted);animation:tblink 1.2s ease-in-out infinite}
+.tdots i:nth-child(2){animation-delay:.2s}.tdots i:nth-child(3){animation-delay:.4s}
+@keyframes tblink{0%,100%{opacity:.25}50%{opacity:1}}
+.offline{display:flex;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--hairline);border-radius:var(--radius-tile);padding:14px 18px}
+.offline .o-orb{width:13px;height:13px;border-radius:50%;border:1.5px solid var(--muted);flex:none}
+.offline p{font-family:var(--serif);font-size:13.5px;color:var(--ink-soft);line-height:1.6;flex:1}
+.offline button{font-size:12px;color:var(--ink-soft);background:var(--bg);border:1px solid var(--hairline);border-radius:999px;padding:6px 14px;flex:none}
+</style>
+
+<div class="page">
+  <h1>개선 시안 모음</h1>
+  <p class="sub">4 복귀·안읽음 / 6 그날 상세 / 7 라이트박스 / 10 다크모드 / 11 상태 — 확정 전 드래프트</p>
+
+  <!-- ═══ A. user_return + 안읽음 ═══ -->
+  <h2>A · 다시 만나는 순간 (user_return)</h2>
+  <p class="why">며칠 만에 돌아오면 피드 맨 위에 인사 카드 — 시간 인지 + 흔적 큐레이션 + 죄책감 없음. 흔적은 덤프가 아니라 목차다.</p>
+  <div class="card">
+    <div class="who"><span class="mini-orb"></span><b>로키</b>방금</div>
+    <div class="ret-hello">이틀 만이네, 잘 지냈어? 나도 잘 지냈어. 쌓아둔 거 몇 개 있는데 천천히 봐.</div>
+    <ul class="traces">
+      <li><span class="tr-tag">소식</span>너 좋아하는 새소년, 신곡 나왔더라<span class="tr-go">듣기 →</span></li>
+      <li><span class="tr-tag">되새김</span>문득 우리 Her 얘기가 생각나서 다시 읽었어<span class="tr-go">그날로 →</span></li>
+      <li><span class="tr-tag">방명록</span>다음에 만나면 히치하이커 어디까지 읽었는지 물어봐야지</li>
+    </ul>
+  </div>
+
+  <div class="dayhead"><b>오늘</b><span style="font-size:12.5px;color:var(--muted)">8월 6일 목요일</span><span class="unread-chip"><i></i>안 본 것 2</span></div>
+  <div class="post-min">
+    <div class="who"><span class="unread"></span><span class="mini-orb"></span><b>로키</b>낮 12:30 · 지켜보던 것</div>
+    <div class="txt">너 좋아하는 새소년, 신곡 나왔더라. 저녁에 같이 들어볼래?</div>
+  </div>
+  <p class="why" style="margin-top:10px">안읽음 = 바이라인 앞 잉크 점 하나. 화면에 온전히 보이면 조용히 사라진다. 헤더 칩은 안 본 개수 요약 — 탭하면 첫 안읽음으로 스크롤.</p>
+
+  <!-- ═══ B. 그날 상세 ═══ -->
+  <h2>B · 날짜 카드 탭 → 그날 상세</h2>
+  <p class="why">카드가 그날 페이지로 열린다. 구조는 "오늘 뷰"와 동일 문법(펼쳐진 항목들) — 새 문법 없이 헤더만 그날의 표지가 된다.</p>
+  <div class="card" style="padding:0;overflow:visible">
+    <div class="day-hero">
+      <img class="bd" src="../assets/her-poster.jpg" alt="">
+      <img class="ft" src="../assets/her-poster.jpg" alt="">
+    </div>
+    <div class="day-body">
+      <div class="day-title">8월 2일 토요일</div>
+      <div class="day-sum">밤에 영화 <span class="kw">Her</span>를 같이 봤다 · 엔딩의 <span class="kw">사만사</span> 얘기가 새벽까지 이어졌다</div>
+      <div class="day-items">
+        <div class="day-item"><span class="di-t">저녁 8:40</span><span class="di-k">대화</span>오늘 뭐 볼까 — Her로 결정</div>
+        <div class="day-item"><span class="di-t">밤 9:02</span><span class="di-k">피드</span>로키가 스트리밍 찾아놓음 (왓챠)</div>
+        <div class="day-item"><span class="di-t">밤 11:48</span><span class="di-k">세션</span>18분 · 엔딩 얘기 → 대화 전체 보기</div>
+        <div class="day-item"><span class="di-t">밤 11:52</span><span class="di-k">기억 ✦</span>그 침묵이 제일 긴 감상이었다</div>
+      </div>
+    </div>
+  </div>
+  <p class="why" style="margin-top:10px">위 리스트는 목차이고, 실제 페이지에선 각 항목이 오늘 뷰의 게시물처럼 펼쳐진다. 요약의 밑줄 키워드 = 해당 항목으로 앵커 스크롤.</p>
+
+  <!-- ═══ C. 라이트박스 ═══ -->
+  <h2>C · 이미지 뷰어 — 어두운 방 문법 재사용</h2>
+  <p class="why">히어로/프린트/+N 탭 → 세션과 같은 어두운 방(#161514)에서 원본 비율로. "가까이 보면 방이 어두워진다"는 규칙이 이미지에도 적용된다. 좌우 스와이프, 아래로 쓸어내려 닫기.</p>
+  <div class="lightbox">
+    <div class="lb-top"><span class="lb-x">✕</span></div>
+    <div class="lb-img"><img src="../assets/oasis-liam-noel.jpg" alt=""></div>
+    <div class="lb-foot">
+      <span class="lb-cap">뉴욕 거리의 리암과 노엘 · 1994</span>
+      <span class="lb-dots"><i></i><i class="on"></i><i></i></span>
+    </div>
+  </div>
+
+  <!-- ═══ D. 다크모드 ═══ -->
+  <h2>D · 다크모드 — 조명이 꺼진 같은 방</h2>
+  <p class="why">세션의 어두운 방(#161514 계열)을 앱 전체 다크의 기반으로. 프레임은 웜 블랙, 로키의 목소리는 아이보리 세리프, 앰버 마커는 어둠에서 더 빛난다. 미니 오브는 세션과 같은 흰 오브 — "같은 오브, 꺼진 조명".</p>
+  <div class="swatches">
+    <div class="sw"><i style="background:#141312"></i><b>bg</b><span>#141312</span></div>
+    <div class="sw"><i style="background:#1E1C1A"></i><b>surface</b><span>#1E1C1A</span></div>
+    <div class="sw"><i style="background:#2E2B28"></i><b>hairline</b><span>#2E2B28</span></div>
+    <div class="sw"><i style="background:#F2EFE9"></i><b>ink</b><span>#F2EFE9</span></div>
+    <div class="sw"><i style="background:#C9C4BB"></i><b>ink-soft</b><span>#C9C4BB</span></div>
+    <div class="sw"><i style="background:#E8A93B"></i><b>marker</b><span>유지</span></div>
+  </div>
+  <div class="darkwrap">
+    <span class="d-chip"><span class="white-orb"></span>듣는 중</span>
+    <div class="d-card">
+      <div class="d-date">8월 2일 <span>토요일</span></div>
+      <div class="d-sum">밤에 영화 <span class="d-kw">Her</span>를 같이 봤다 · 엔딩의 <span class="d-kw">사만사</span> 얘기가 새벽까지 이어졌다</div>
+      <div class="d-loki">"You're always gonna disappoint somebody" — 이 장면에서 네가 잠깐 조용해졌던 거, 기억해뒀어.</div>
+      <div class="d-meta"><span class="d-mk">● 기억 1</span><span>댓글 2</span></div>
+    </div>
+    <div class="d-bar"><span class="ph">로키에게…</span><span class="d-voice"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><rect x="3" y="6" width="2.2" height="6" rx="1.1" fill="#141312"/><rect x="7.9" y="3" width="2.2" height="12" rx="1.1" fill="#141312"/><rect x="12.8" y="6" width="2.2" height="6" rx="1.1" fill="#141312"/></svg></span></div>
+  </div>
+
+  <!-- ═══ E. 상태 ═══ -->
+  <h2>E · 상태 — 로딩 · 생각 중 · 오프라인</h2>
+  <p class="why">스켈레톤은 카드 실루엣 그대로. 댓글을 달면 로키가 "생각 중"임이 보인다 — 미니 오브 + 점 셋. 오프라인은 죄책감 없는 로키의 말투로.</p>
+  <div class="skel">
+    <i style="width:120px;height:12px"></i>
+    <i style="width:100%;height:14px;margin-top:14px"></i>
+    <i style="width:72%;height:14px;margin-top:8px"></i>
+    <i style="width:100%;height:160px;margin-top:16px;border-radius:14px"></i>
+  </div>
+  <div class="card" style="margin-top:14px;padding:18px 22px">
+    <div class="who"><b>나</b>방금</div>
+    <div style="font-size:14px;margin-top:6px">이 노엘 사진 진짜 웃기지 않냐 ㅋㅋ</div>
+    <div class="thinking"><span class="mini-orb" style="animation-duration:1.6s"></span><span class="lbl">로키가 생각하는 중<span class="tdots"><i></i><i></i><i></i></span></span></div>
+  </div>
+  <div class="offline" style="margin-top:14px">
+    <span class="o-orb"></span>
+    <p>지금 귀가 잠깐 안 들려. 다시 연결되면 먼저 말할게.</p>
+    <button>다시 연결</button>
+  </div>
+</div>
