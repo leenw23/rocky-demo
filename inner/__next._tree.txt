@@ -1,0 +1,6 @@
+:HL["/rocky-demo/_next/static/chunks/181mkezp6d56o.css","style"]
+:HL["/rocky-demo/assets/oasis-melodymaker.jpg","image"]
+:HL["/rocky-demo/assets/oasis-liam-noel.jpg","image"]
+:HL["/rocky-demo/assets/her-quote.jpg","image"]
+:HL["/rocky-demo/assets/hhgttg-poster.jpg","image"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"inner","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"EKOQjkPas_VJogA5tTEIs"}
