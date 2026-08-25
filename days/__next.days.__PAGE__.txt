@@ -1,7 +1,7 @@
 1:"$Sreact.fragment"
-2:I[14805,["/rocky-demo/_next/static/chunks/3h5-r53dm2pe7.js","/rocky-demo/_next/static/chunks/0wondcvszllp7.js","/rocky-demo/_next/static/chunks/1ad3lwaoz5xpf.js","/rocky-demo/_next/static/chunks/1t3iu7u-_9v3b.js"],"default"]
-3:I[35759,["/rocky-demo/_next/static/chunks/3h5-r53dm2pe7.js","/rocky-demo/_next/static/chunks/0wondcvszllp7.js","/rocky-demo/_next/static/chunks/1ad3lwaoz5xpf.js","/rocky-demo/_next/static/chunks/1t3iu7u-_9v3b.js"],"default"]
+2:I[14805,["/rocky-demo/_next/static/chunks/3h5-r53dm2pe7.js","/rocky-demo/_next/static/chunks/0wondcvszllp7.js","/rocky-demo/_next/static/chunks/1ad3lwaoz5xpf.js","/rocky-demo/_next/static/chunks/2t-u8q0y8t85z.js"],"default"]
+3:I[35759,["/rocky-demo/_next/static/chunks/3h5-r53dm2pe7.js","/rocky-demo/_next/static/chunks/0wondcvszllp7.js","/rocky-demo/_next/static/chunks/1ad3lwaoz5xpf.js","/rocky-demo/_next/static/chunks/2t-u8q0y8t85z.js"],"default"]
 4:I[72905,["/rocky-demo/_next/static/chunks/3h5-r53dm2pe7.js","/rocky-demo/_next/static/chunks/0wondcvszllp7.js"],"OutletBoundary"]
 5:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"children":[["$","$L2",null,{"light":true}],["$","$L3",null,{}]]}],[["$","script","script-0",{"src":"/rocky-demo/_next/static/chunks/1ad3lwaoz5xpf.js","async":true}],["$","script","script-1",{"src":"/rocky-demo/_next/static/chunks/1t3iu7u-_9v3b.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"-dpaFY81DTMKnJDQzZYlf"}
+0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"children":[["$","$L2",null,{"light":true}],["$","$L3",null,{}]]}],[["$","script","script-0",{"src":"/rocky-demo/_next/static/chunks/1ad3lwaoz5xpf.js","async":true}],["$","script","script-1",{"src":"/rocky-demo/_next/static/chunks/2t-u8q0y8t85z.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"huw1vmMD9tRFN2GguZASz"}
 6:null
